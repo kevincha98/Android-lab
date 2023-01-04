@@ -20,50 +20,63 @@
 
 ------------------------------------------------------------ Java Code ------------------------------------------------------------
 
-package com.example.loginformques01;
+package com.example.ques2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
-public class LifeCycleQues02Activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_life_cycle_ques02);
-        Log.d("lifecycle","onCreate invoked");
+        setContentView(R.layout.activity_main);
+        Log.d("lifecycle", "onCreate invoked");
+        Toast.makeText(getApplicationContext(), "onCreate invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("lifecycle","onStart invoked");
+        Log.d("lifecycle", "onStart invoked");
+        Toast.makeText(getApplicationContext(), "onStart invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("lifecycle","onResume invoked");
+        Log.d("lifecycle", "onResume invoked");
+        Toast.makeText(getApplicationContext(), "onResume invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("lifecycle","onPause invoked");
+        Log.d("lifecycle", "onPause invoked");
+        Toast.makeText(getApplicationContext(), "onPause invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("lifecycle","onStop invoked");
+        Log.d("lifecycle", "onStop invoked");
+        Toast.makeText(getApplicationContext(), "onStop invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d("lifecycle","onRestart invoked");
+        Log.d("lifecycle", "onRestart invoked");
+        Toast.makeText(getApplicationContext(), "onRestart invoked", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("lifecycle","onDestroy invoked");
+        Log.d("lifecycle", "onDestroy invoked");
+        Toast.makeText(getApplicationContext(), "onDestroy invoked", Toast.LENGTH_SHORT).show();
     }
-
 }
