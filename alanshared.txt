@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="prgm4 shared preference "
+android:id="@+id/textView"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true"
+android:textSize="29dp" />
+<EditText
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/editText"
+android:layout_below="@+id/textView2"
+android:layout_marginTop="67dp"
+android:hint="Name"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true" />
+<EditText
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/editText3"
+android:layout_below="@+id/editText2"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true"
+android:hint="Email" />
+<EditText
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/editText2"
+android:layout_below="@+id/editText"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentEnd="true"
+android:hint="Pass" />
+<Button
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Save"
+android:id="@+id/button"
+android:layout_below="@+id/editText3"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="50dp" />
+</LinearLayout>
+
+
+
+
+
+
+package com.example.program8;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+EditText ed1,ed2,ed3;
+Button b1;
+public static final String MyPREFERENCES = "MyPrefs" ;
+public static final String Name = "nameKey";
+public static final String Phone = "phoneKey";
+public static final String Email = "emailKey";
+SharedPreferences sharedpreferences;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+ed1=(EditText)findViewById(R.id.editText);
+ed2=(EditText)findViewById(R.id.editText2);
+ed3=(EditText)findViewById(R.id.editText3);
+b1=(Button)findViewById(R.id.button);
+sharedpreferences = getSharedPreferences(MyPREFERENCES,
+Context.MODE_PRIVATE);
+b1.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+String n = ed1.getText().toString();
+String ph = ed2.getText().toString();
+String e = ed3.getText().toString();
+SharedPreferences.Editor editor = sharedpreferences.edit();
+editor.putString(Name, n);
+editor.putString(Phone, ph);
+editor.putString(Email, e);
+editor.commit();
+Toast.makeText(MainActivity.this,"Thanks",Toast.LENGTH_LONG).show();
+} }); }}
